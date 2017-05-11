@@ -2,75 +2,44 @@
 title: "Leaderboard"
 layout: structure
 bodyclass: "page-leaderboard"
-javascript:
-- "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"
-leaders:
-    -
-        name: Corine. H
-        score: 1090
-    -
-        name: Saoirse. S
-        score: 756
-    -
-        name: Aurelia. K
-        score: 725
-    -
-        name: Joiful. F-M
-        score: 705
-    -
-        name: Lucia. S
-        score: 705
-totalpoints: 15.75
-
 ---
-<div class="container">
-    <div class="row">
-        <div class="col-xs-6 students">
-        {% for values in page.leaders %}
-            <div class="row">
-                <div class="col-xs-2 student-rank">{{ forloop.index }}</div>
-                <div class="col-xs-2 student-image"><img src="girl.png" class="center-block img-responsive" alt="" /></div>
-                <div class="col-xs-6 student-bar">
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ values.score }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ values.score | divided_by: page.totalpoints }}%;">
-                            {{ values.score }}
-                        </div>
-                    </div>
-                    <div>
-                        {{ values.name }}
-                    </div>
-                </div>
-                <div class="col-xs-2 student-score">{{ values.score }}</div>
+
+<section class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 students">
+      {% assign leaders = site.data.leaders.scores | sort: "name" | sort: "score" | reverse %}
+      {% for leader in leaders limit: 5 %}
+        <div class="row">
+          <div class="col-xs-1 student-rank">{{ forloop.index }}</div>
+          <div class="col-xs-2 student-image"><img src="/avatar/{{ leader.image }}" class="center-block img-responsive" alt=""/></div>
+          <div class="col-xs-6 student-bar">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="{{ leader.score }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ leader.score | divided_by: site.data.leaders.totalpoints }}%;">
+                {{ leader.score }}
+              </div>
             </div>
-        {% endfor %}
+            <div>
+              {{ leader.name }}
+            </div>
+          </div>
+          <div class="col-xs-3 student-score text-right">{{ leader.score }}</div>
         </div>
-        <div class="col-xs-6 schools">
-            <div class="row">
-                <img style="width: 10cm; height: 5cm;" src="Leaf Points 10 000s3.jpg" class="center-block img-responsive" alt=""/> 
-                
+      {% endfor %}
     </div>
-            </div>
-            <h3 class="text-center">
-                Brigidine College
-            </h3>
-            
-                    <div class="score-about">
-             <h4 class="text-center">
-                         1st Rank
-               </div>
-                </div>
-                <div class="col-xs-6">
-                    <div class="score-amount">
-                        {{ page.schoolpoints }}
-                    </div>
-                  <div class="score-about">
-                      <h5 class="text-center">
-                       Total Points for Brigidine
-                      <h6 class="text-center">
-                          21080
-                </div>
-                </div>
-            </div>
-        </div>
+    <div class="col-xs-12 col-sm-6 schools text-center">
+      <img src="Leaf Points 10 000s3.jpg" class="center-block img-responsive" alt=""/>
+      <h3>
+        Brigidine College
+      </h3>
+      <h4>
+        1st Rank
+      </h4>
+      <h4>
+        Total Points for Brigidine
+      </h4>
+      <h4>
+        {{ site.data.leaders.totalscore }}
+      </h4>
     </div>
-</div>
+  </div>
+</section>

@@ -1,43 +1,53 @@
-totalpoints:    15.75
-totalscore:     21080
+totalpoints: 15.75
+totalscore:  21080
 scores:
-    -
-        name:   Corine. H
-        score:  1090
-        image:  girl.png
-    -
-        name:   Saoirse. S
-        score:  756
-        image:  girl.png
-    -
-        name:   BBBBBB
-        score:  98
-        image:  girl.png
-    -
-        name:   Aurelia. K
-        score:  725
-        image:  girl.png
-    -
-        name:   Joiful. F-M
-        score:  705
-        image:  girl.png
-    -
-        name:   Lucia. S
-        score:  705
-        image:  girl.png
-    -
-        name:   AAAAAA
-        score:  99
-        image:  girl.png
-    -
-        name:   CCCCCC
-        score:  97
-        image:  winner.png
-    -
-        name:   DDDDDDD
-        score:  96
-        image:  girl.png
-    -
-        name:   EEEEEE
-        score:  95
-        image:  girl.png
+  - {"name":"Corine H","score":1370,"image":"1025.png"}
+  - {"name":"Kiara W","score":925,"image":"925.png"}
+  - {"name":"Saoirse E","score":885,"image":"900.png"}
+  - {"name":"Juanita B","score":875,"image":"875.png"}
+  - {"name":"Mikaela G","score":810,"image":"825.png"}
+  - {"name":"Aurelia K","score":725,"image":"725.png"}
+  - {"name":"Jenna-Rose M","score":720,"image":"725.png"}
+  - {"name":"Joiful F","score":705,"image":"725.png"}
+  - {"name":"Lucia S","score":705,"image":"725.png"}
+  - {"name":"Elisha M","score":645,"image":"650.png"}
+  - {"name":"Izabella D","score":635,"image":"650.png"}
+  - {"name":"Giovannie D","score":625,"image":"625.png"}
+  - {"name":"Paige L","score":623,"image":"625.png"}
+  - {"name":"Lauren G","score":620,"image":"625.png"}
+  - {"name":"Eliza C","score":560,"image":"575.png"}
+  - {"name":"Brianna H","score":525,"image":"525.png"}
+  - {"name":"Charlotte S","score":515,"image":"525.png"}
+  - {"name":"Kate Grace S","score":500,"image":"500.png"}
+  - {"name":"Jasmine D","score":500,"image":"500.png"}
+  - {"name":"Lola P","score":485,"image":"500.png"}
+  - {"name":"Emma B","score":475,"image":"475.png"}
+  - {"name":"Ava S","score":470,"image":"475.png"}
+  - {"name":"Cara B","score":463,"image":"475.png"}
+  - {"name":"Kyra T","score":440,"image":"450.png"}
+  - {"name":"Madeleine G","score":435,"image":"450.png"}
+  - {"name":"Rachel G","score":425,"image":"425.png"}
+  - {"name":"Eva L","score":425,"image":"425.png"}
+  - {"name":"Mia T","score":422,"image":"425.png"}
+  - {"name":"Ciara D","score":410,"image":"425.png"}
+  - {"name":"Chloe D","score":400,"image":"400.png"}
+  - {"name":"Orla K","score":400,"image":"400.png"}
+  - {"name":"Molly M","score":400,"image":"400.png"}
+  - {"name":"Darci W","score":400,"image":"400.png"}
+  - {"name":"Daniela S","score":395,"image":"400.png"}
+  - {"name":"Ashley L","score":390,"image":"400.png"}
+  - {"name":"Chloe D","score":382,"image":"400.png"}
+  - {"name":"Stav-Ritsa X","score":380,"image":"400.png"}
+  - {"name":"Vanessa C","score":375,"image":"375.png"}
+  - {"name":"Hannah K","score":375,"image":"375.png"}
+  - {"name":"Rachel W","score":375,"image":"375.png"}
+  - {"name":"Lily M","score":370,"image":"375.png"}
+  - {"name":"Elizabeth P","score":365,"image":"375.png"}
+  - {"name":"Aniesha R","score":365,"image":"375.png"}
+  - {"name":"Ella S","score":363,"image":"375.png"}
+  - {"name":"Jade S","score":360,"image":"375.png"}
+  - {"name":"Beatrice L","score":355,"image":"375.png"}
+  - {"name":"Lisa H","score":335,"image":"350.png"}
+  - {"name":"Jordyn L","score":315,"image":"325.png"}
+  - {"name":"Vasliki T","score":315,"image":"325.png"}
+  - {"name":"Madeline M","score":310,"image":"325.png"}

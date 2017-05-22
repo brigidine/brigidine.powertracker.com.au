@@ -34,7 +34,7 @@ menuitems:
       title: "Target"
     - url: /leaderboard/
       title: "Leaderboard"
-    - url: https://energygame.com.au/user/register
+    - url: https://www.energygame.com.au/
       title: "Register"
       target: _blank
     - url: /contact/

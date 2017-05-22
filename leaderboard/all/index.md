@@ -1,5 +1,5 @@
 ---
-title: Full Leader Board
+title: Full Leaderboard
 layout: default
 bodyclass: "page-leaderboard"
 ---

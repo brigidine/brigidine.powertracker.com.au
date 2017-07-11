@@ -6,17 +6,20 @@ javascript:
   - \js\preview.js
 ---
 
-{% assign leaders = site.data.leaders.scores | sort: "name" | sort: "score" | reverse %}
+{% assign leaders = site.data.leaders.scores | sort : "name" | sort : "score" | reverse %}
 <section class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-push-3 students">
 
       {% for leader in leaders %}
+        {% assign avatarimage = leader.score | divided_by : 25 | times : 25 %}
+        {% if avatarimage > 1025 %}{% assign avatarimage = 1025 %}{% endif %}
+        {% assign avatarimage = avatarimage | append : '.png' %}
         <div class="row">
           <div class="col-xs-1 student-rank">{{ forloop.index }}</div>
           <div class="col-xs-2 student-image">
-            <a class="preview" href="/avatar/{{ leader.image }}" rel="avatar">
-              <img src="/avatar/{{ leader.image }}" class="center-block img-responsive" alt="{{ leader.image }}"/>
+            <a class="preview" href="/avatar/{{ avatarimage }}" rel="avatar">
+              <img src="/avatar/{{ avatarimage }}" class="center-block img-responsive" alt="{{ avatarimage }}"/>
             </a>
           </div>
           <div class="col-xs-6 student-bar">

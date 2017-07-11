@@ -11,7 +11,8 @@ sitemap: false
   {
     "name": "{{ leader.name  }}",
     "score": {{ leader.score }},
-    "image": "{{ avatarimage }}"
+    "image": "{{ avatarimage }}",
+    "percent": {{ leader.score | divided_by: site.data.leaders.totalpoints | floor }}
   }{% if forloop.last == false %},{% endif %}
 {% endfor %}
 ]

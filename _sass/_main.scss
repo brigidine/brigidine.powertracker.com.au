@@ -1,178 +1,184 @@
-
 body {
-    //padding-top: 115px;
+  //padding-top: 115px;
 }
 
 .big {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .navbar-brand {
-    padding: 5px 0;
-    font-size: 18px;
-    //font-weight: bold;
+  padding: 5px 0;
+  font-size: 18px;
+  //font-weight: bold;
 }
-
 @media (min-width: 768px) {
-    .navbar-nav>li {
-        padding-top: 20px;
-        &>a {
-            padding-top: 25px;
-            padding-bottom: 25px;
-            &.btn-primary {
-                color: white;
-            }
-        }
+  .navbar-nav > li {
+    padding-top: 20px;
+
+    & > a {
+      padding-top: 25px;
+      padding-bottom: 25px;
+
+      &.btn-primary {
+        color: white;
+      }
     }
+  }
 }
 
 .background {
-    //background-image: url(/images/earth.png);
-    background-image: url(/images/earthmoving.gif);
-    background-position: center;
-    background-repeat: no-repeat;
-    //background-size: cover;
+  //background-image: url(/images/earth.png);
+  background-image: url("/images/earthmoving.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  //background-size: cover;
 }
 
 .page-home {
+  .background {
+    min-height: 80vh;
+  }
 
-    .background {
-        min-height: 80vh;
-    }
+  h1 {
+    padding-top: 10vh;
+    text-align: center;
+    font-size: 92px;
+  }
 
-    h1 {
-        padding-top: 10vh;
-        text-align: center;
-        font-size: 92px
-    }
-
-    h2 {
-        text-align: center;
-    }
-
+  h2 {
+    text-align: center;
+  }
 }
 
 .page-energy {
+  .readings {
+    margin-top: 40px;
+    //margin-bottom: 40px;
+    color: #50864D;
 
-    .readings {
-        margin-top: 40px;
-        //margin-bottom: 40px;
-        color: #50864D;
-
-        a:hover {
-            text-decoration: none;
-        }
-        .value {
-            color: white;
-            font-size: 48px;
-            display: block;
-        }
-        .units{
-            color: white;
-            font-size: 24px;
-        }
-        .icon {
-            text-align: center;
-            font-size: 72px;
-        }
-        .text {
-            margin-top: 10px;
-            text-align: center;
-            font-size: 18px;
-        }
+    a:hover {
+      text-decoration: none;
     }
 
-    #target {
-        position: absolute;
-        text-align: center;
-        top: 80px;
-        left: 0;
-        right: 0;
-        font-size: 24px;
-        font-weight: bold;
+    .value {
+      color: white;
+      font-size: 48px;
+      display: block;
     }
 
+    .units {
+      color: white;
+      font-size: 24px;
+    }
+
+    .icon {
+      text-align: center;
+      font-size: 72px;
+    }
+
+    .text {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 18px;
+    }
+  }
+
+  #target {
+    position: absolute;
+    text-align: center;
+    top: 80px;
+    left: 0;
+    right: 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
 }
 
-.page-target {
-
-}
+.page-target {}
 
 .page-leaderboard {
-    .students {
-        .row {
-            margin-top: 10px;
+  .students {
+    .row {
+      margin-top: 10px;
 
+      .student-rank {
+        text-align: center;
+        font-size: 28px;
+      }
 
-            .student-rank {
-                text-align: center;
-                font-size: 28px;
-            }
-            .student-image {}
-            .student-bar {}
-            .student-score {
-                text-align: right;
-                font-size: 48px;
-            }
-        }
-        .viewall {
-            margin-top: 50px;
-        }
+      .student-image {}
+
+      .student-bar {}
+
+      .student-score {
+        text-align: right;
+        font-size: 48px;
+      }
     }
-    .schools {
-        .bus {
-            padding: 50px;
-            text-align: center;
-            background: transparent;
-            color: $brand-primary;
-            border: 2px solid $brand-primary;
-            border-radius: 50%;
-            -webkit-transition: all .3s ease-out 0s;
-            transition: all .3s ease-out 0s;
-        }
-        .score {
-            margin-top: 50px;
-            .score-amount {
-                text-align: center;
-                font-size: 48px;
-                font-weight: bold;
-            }
-            .score-about {
-                text-align: center;
-                font-size: 18px;
-                font-weight: bold;
-            }
-        }
+
+    .viewall {
+      margin-top: 50px;
     }
+  }
+
+  .schools {
+    .bus {
+      padding: 50px;
+      text-align: center;
+      background: transparent;
+      color: $brand-primary;
+      border: 2px solid $brand-primary;
+      border-radius: 50%;
+      -webkit-transition: all 0.3s ease-out 0s;
+      transition: all 0.3s ease-out 0s;
+    }
+
+    .score {
+      margin-top: 50px;
+
+      .score-amount {
+        text-align: center;
+        font-size: 48px;
+        font-weight: bold;
+      }
+
+      .score-about {
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+  }
 }
 
 .page-about {
-    .about-icons {
-        font-size: 62px;
-        a{
-            color: white;
-            &:hover {
-                color: $brand-primary;
-            }
-        }
-    }
-    $about-height: 100px;
-    .about-icon {
-        width: $about-height;
-        height: $about-height;
-        text-align: center;
-        background: transparent;
+  .about-icons {
+    font-size: 62px;
+
+    a {
+      color: white;
+
+      &:hover {
         color: $brand-primary;
-        //font-size: 28px;
-        line-height: $about-height;
-        border: 2px solid $brand-primary;
-        border-radius: 50%;
-        -webkit-transition: all .3s ease-out 0s;
-        transition: all .3s ease-out 0s;
+      }
     }
+  }
+  $about-height: 100px;
 
+  .about-icon {
+    width: $about-height;
+    height: $about-height;
+    text-align: center;
+    background: transparent;
+    color: $brand-primary;
+    //font-size: 28px;
+    line-height: $about-height;
+    border: 2px solid $brand-primary;
+    border-radius: 50%;
+    -webkit-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
+  }
 }
-
 /// Mixin to place items on a circle
 /// @author Hugo Giraudel
 /// @author Ana Tudor
@@ -180,55 +186,62 @@ body {
 /// @param {Length} $circle-size - Large circle size
 /// @param {Length} $item-size - Single item size
 @mixin on-circle($item-count, $circle-size, $item-size) {
-    position: relative;
-    width:  $circle-size;
-    height: $circle-size;
-    padding: 0;
-    border-radius: 50%;
-    list-style: none;
+  position: relative;
+  width: $circle-size;
+  height: $circle-size;
+  padding: 0;
+  border-radius: 50%;
+  list-style: none;
 
-    > * {
-        display: block;
-        position: absolute;
-        top:  50%;
-        left: 50%;
-        width:  $item-size;
-        height: $item-size;
-        margin: -($item-size / 2);
-
-        $angle: (360 / $item-count);
-        $rot: 0;
-
-        @for $i from 1 through $item-count {
-            &:nth-of-type(#{$i}) {
-                transform:
-                rotate($rot * 1deg)
-                translate($circle-size / 2)
-                rotate($rot * -1deg);
-            }
-
-            $rot: $rot + $angle;
-        }
+  > * {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: $item-size;
+    height: $item-size;
+    margin: -($item-size / 2);
+    $angle: (360 / $item-count);
+    $rot: 0;
+    @for $i from 1 through $item-count {
+      &:nth-of-type(#{$i}) {
+        transform: rotate($rot * 1deg) translate($circle-size / 2) rotate($rot * -1deg);
+      }
+      $rot: $rot + $angle;
     }
+  }
 }
 
 .circle-container {
-    @include on-circle($item-count: 6, $circle-size: 5em, $item-size: 2em);
-    margin: 80px auto 0;
+  @include on-circle($item-count: 6, $circle-size: 5em, $item-size: 2em);
+  margin: 80px auto 0;
+  //border: solid 5px tomato;
+  li {
+    //display: block;
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50%;
+    filter: grayscale(100%);
     //border: solid 5px tomato;
+    transition: 0.15s;
 
-    li {
-        //display: block;
-        max-width: 100px;
-        max-height: 100px;
-        border-radius: 50%;
-        filter: grayscale(100%);
-        //border: solid 5px tomato;
-        transition: .15s;
-
-        &:hover,
-        &:active {
-            filter: grayscale(0);
-        }
+    &:active,
+    &:hover {
+      filter: grayscale(0);
     }
+  }
+}
+
+#preview {
+  position: absolute;
+  border: 1px solid #ccc;
+  background: #333;
+  padding: 5px;
+  display: none;
+  color: #fff;
+
+  img {
+    max-height: 400px;
+    max-width: 400px;
+  }
 }

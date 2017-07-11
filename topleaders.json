@@ -1,0 +1,17 @@
+---
+sitemap: false
+---
+
+[
+{% assign leaders = site.data.leaders.scores | sort : "name" | sort : "score" | reverse %}
+{% for leader in leaders limit : 5 %}
+  {% assign avatarimage = leader.score | divided_by: 25 | times: 25 %}
+  {% if avatarimage > 1025 %}{% assign avatarimage = 1025 %}{% endif %}
+  {% assign avatarimage = avatarimage | append: '.png' %}
+  {
+    "name": "{{ leader.name  }}",
+    "score": {{ leader.score }},
+    "image": "{{ avatarimage }}"
+  }{% if forloop.last == false %},{% endif %}
+{% endfor %}
+]

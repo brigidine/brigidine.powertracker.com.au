@@ -1,0 +1,22 @@
+{
+  "name": "brigidine.powertracker.com.au",
+  "version": "1.0.0",
+  "description": "Powering Change @ Brigidine College\r ===================================",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run serve",
+    "serve": "bundle exec jekyll serve",
+    "build": "bundle exec jekyll build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brigidine/brigidine.powertracker.com.au.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brigidine/brigidine.powertracker.com.au/issues"
+  },
+  "homepage": "https://github.com/brigidine/brigidine.powertracker.com.au#readme"
+}

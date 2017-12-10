@@ -7,80 +7,94 @@ javascript:
 
 <div class="row">
 
-    <div class="col-xs-12 col-sm-5 col-sm-push-7">
+  <div class="col-xs-12 col-sm-5 col-sm-push-7">
 
-        <h2>Contact info</h2>
+    <h2>Contact info</h2>
 
-        {% if site.email != null %}
-        <p class="contact-email">
-            <a href="mailto:{{ site.email }}">
-                {{ site.email }}
-            </a>
-        </p>
-        {% endif %}
-
-        {% if site.phone != null %}
-        <p class="contact-phone">
-            <a href="tel:{{ site.phone | replace: ' ', '' }}">
-            {{ site.phone }}
-            </a>
-        </p>
-        {% endif %}
-
-        {% if site.address != null %}
-        <p class="contact-address">
-            {% for item in site.address %}
-            {{ item }}
-            {% if item.last %}
-            {% else %}
-            <br />
-            {% endif %}
-            {% endfor %}
-        </p>
-        {% endif %}
-
-        <div style="height: 50px"></div>
-
-        <a href="https://www.powertracker.com.au/" target="_new">
-            <img src="/images/powertracker.png" class="img-responsive" />
+    {% if site.email != null %}
+      <p class="contact-email">
+        <a href="mailto:{{ site.email }}">
+          {{ site.email }}
         </a>
+      </p>
+    {% endif %}
 
-    </div>
+    {% if site.phone != null %}
+      <p class="contact-phone">
+        <a href="tel:{{ site.phone | replace: ' ', '' }}">
+          {{ site.phone }}
+        </a>
+      </p>
+    {% endif %}
 
-    <div class="col-xs-12 col-sm-7 col-sm-pull-5">
+    {% if site.address != null %}
+      <p class="contact-address">
+        {% for item in site.address %}
+          {{ item }}
+          {% if item.last %}
+          {% else %}
+            <br/>
+          {% endif %}
+        {% endfor %}
+      </p>
+    {% endif %}
 
-        <h2>Send a message</h2>
+    <div style="height: 50px"></div>
 
-        <form id="form" method="post" action="http://forms.redronin.com/">
+    <a href="https://www.powertracker.com.au/" target="_new">
+      <img src="/images/powertracker.png" class="img-responsive"/>
+    </a>
 
-            <input type="hidden" name="subject" value="{{ site.title }} Contact Us">
-            <input type="hidden" name="return" value="+thankyou">
-            <input type="hidden" name="sendto" value="{{ site.email }}">
+  </div>
 
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name" data-validate="required"/>
-            </div>
+  <div class="col-xs-12 col-sm-7 col-sm-pull-5">
 
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" class="form-control" placeholder="Enter email address" data-validate="required,email"/>
-            </div>
+    <h2>Send a message</h2>
 
-            <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="text" name="phone" id="phone" class="form-control" placeholder="Enter phone number" data-validate="phone"/>
-            </div>
+    <form name="Contact Us" netlify="netlify">
 
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea name="message" id="message" class="form-control" data-validate="required"></textarea>
-            </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="form-control"
+          placeholder="Enter your name"
+          data-validate="required"/>
+      </div>
 
-            <input type="submit" value="Send" class="submit form-control btn btn-default" />
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          class="form-control"
+          placeholder="Enter email address"
+          data-validate="required,email"/>
+      </div>
 
-        </form>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input
+          type="text"
+          name="phone"
+          id="phone"
+          class="form-control"
+          placeholder="Enter phone number"
+          data-validate="phone"/>
+      </div>
 
-    </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" class="form-control" data-validate="required"></textarea>
+      </div>
+
+      <input type="submit" value="Send" class="submit form-control btn btn-default"/>
+
+    </form>
+
+  </div>
 
 </div>

@@ -1,7 +1,7 @@
 {
   "name": "brigidine.powertracker.com.au",
   "version": "1.0.0",
-  "description": "Powering Change @ Brigidine College\r ===================================",
+  "description": "Powering Change @ Brigidine College",
   "main": "index.js",
   "scripts": {
     "test": "npm run serve",

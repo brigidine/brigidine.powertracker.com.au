@@ -3,3 +3,4 @@ _site
 Thumbs.db
 desktop.ini
 /.jekyll-metadata
+Gemfile.lock

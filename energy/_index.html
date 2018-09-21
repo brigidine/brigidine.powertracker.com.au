@@ -1,11 +1,3 @@
----
-title: "Energy"
-layout: structure
-bodyclass: "page-energy"
-javascript:
-- "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"
----
-
 <div class="container">
     <div class="row chart">
         <div class="col-xs-12">
@@ -66,20 +58,20 @@ javascript:
 
     var serial = 'id26191';
 
-    function clickButton (range) {
+    function clickButton(range) {
         $(".getdatabtn").removeClass('btn-primary');
         $("#getdata" + range).addClass('btn-primary');
         getConsumption(range);
         drawChart(range);
     }
 
-    function getLivePower () {
-        var url = "https://www.powertracker.com.au/query/sys/sensor/"+serial+"/power/public";
+    function getLivePower() {
+        var url = "https://www.powertracker.com.au/query/sys/sensor/" + serial + "/power/public";
         console.log('getLivePower', url);
         $.ajax({
             url: url,
             dataType: 'json',
-            success: function(data){
+            success: function (data) {
                 console.log('getLivePower', data);
                 eng = engineeringNotation(data.power.value, 'W');
                 $("#livepowervalue").text(eng.value);
@@ -88,13 +80,13 @@ javascript:
         });
     }
 
-    function getConsumption (range) {
-        var url = "https://www.powertracker.com.au/query/sys/range/"+serial+"/power/"+range+"/now/public";
+    function getConsumption(range) {
+        var url = "https://www.powertracker.com.au/query/sys/range/" + serial + "/power/" + range + "/now/public";
         console.log('getConsumption', url);
         $.ajax({
             url: url,
             dataType: 'json',
-            success: function(data){
+            success: function (data) {
                 console.log('getConsumption', data);
                 var eng;
 
@@ -159,13 +151,13 @@ javascript:
         });
     }
 
-    function drawChart (range) {
-        var url = "https://www.powertracker.com.au/query/sys/chart/"+serial+"/power/hourly/"+range+"/now/public";
+    function drawChart(range) {
+        var url = "https://www.powertracker.com.au/query/sys/chart/" + serial + "/power/hourly/" + range + "/now/public";
         console.log('drawChart', url);
         $.ajax({
             url: url,
             dataType: 'json',
-            success: function(response){
+            success: function (response) {
 
                 // remove null values as they cause a chart error
                 for (var i in response.values) {
@@ -199,7 +191,7 @@ javascript:
                     scales: {
                         yAxes: [{
                             ticks: {
-                                beginAtZero:true
+                                beginAtZero: true
                             },
                             scaleLabel: {
                                 display: true,
@@ -218,7 +210,7 @@ javascript:
         });
     }
 
-    function engineeringNotation (number, units) {
+    function engineeringNotation(number, units) {
         if (number == null) {
             return {
                 'value': '-',
@@ -237,14 +229,14 @@ javascript:
         } else {
             number = number.toFixed(2);
         }
-        var prefixes = {0:"",1:"k",2:"M",3:"G"};
+        var prefixes = { 0: "", 1: "k", 2: "M", 3: "G" };
         return {
             'value': number,
             'units': prefixes[exp] + units
         };
     }
 
-    function engineeringWeight (grams, units) {
+    function engineeringWeight(grams, units) {
         if (grams == null) {
             return {
                 'value': '-',
@@ -263,7 +255,7 @@ javascript:
         } else {
             grams = grams.toFixed(2);
         }
-        var prefixes = {0:"g",1:"kg",2:"T",3:"kT"};
+        var prefixes = { 0: "g", 1: "kg", 2: "T", 3: "kT" };
         return {
             'value': grams,
             'units': prefixes[exp] + units
@@ -271,7 +263,7 @@ javascript:
     }
 
 
-    $( document ).ready(function() {
+    $(document).ready(function () {
         getLivePower();
         clickButton('day');
     });

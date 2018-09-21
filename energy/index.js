@@ -4,6 +4,7 @@ function clickButton(range) {
   $(".getdatabtn").removeClass("btn-primary");
   $("#getdata" + range).addClass("btn-primary");
   getConsumption(range);
+  getLastYear(range);
   drawChart(range);
 }
 
@@ -32,7 +33,7 @@ function getConsumption(range) {
     "/power/" +
     range +
     "/now/public";
-  console.log("getConsumption", url);
+  console.log("getConsumption", range, url);
   $.ajax({
     url: url,
     dataType: "json",
@@ -42,13 +43,13 @@ function getConsumption(range) {
 
       // Consumption
       eng = engineeringNotation(data.power.hourly, "Wh");
-      console.log(eng);
+      console.log("Consumption", eng);
       $("#consumptionvalue").text(eng.value);
       $("#consumptionunits").text(eng.units);
 
       // Green House
       eng = engineeringWeight(data.power.hourly * 1.444, "CO<sub>2</sub>");
-      console.log(eng);
+      console.log("Green house", eng);
       $("#greenhousevalue").text(eng.value);
       $("#greenhouseunits").html(eng.units);
       $("#money").text(Math.round(data.power.hourly / 4000, 2));
@@ -89,6 +90,30 @@ function getConsumption(range) {
         data: data,
         options: options
       });
+    }
+  });
+}
+
+function getLastYear(range) {
+  var url =
+    "https://www.powertracker.com.au/query/sys/range/" +
+    serial +
+    "/power/" +
+    range +
+    "/-1 year/public";
+  console.log("getLastYear", range, url);
+  $.ajax({
+    url: url,
+    dataType: "json",
+    success: function(data) {
+      console.log("getLastYear", data);
+      var eng;
+
+      // Green House
+      eng = engineeringWeight(data.power.hourly * 1.444, "CO<sub>2</sub>");
+      console.log("Green house", eng);
+      $("#lastyearvalue").text(eng.value);
+      $("#lastyearunits").html(eng.units);
     }
   });
 }

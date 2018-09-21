@@ -52,7 +52,27 @@ function getConsumption(range) {
       console.log("Green house", eng);
       $("#greenhousevalue").text(eng.value);
       $("#greenhouseunits").html(eng.units);
-      $("#money").text(Math.round(data.power.hourly / 4000, 2));
+
+      // Text under widgit
+      console.log("range", range);
+
+      switch (range) {
+        case "day":
+          $("#greenhousetext").text("Carbon Emissions for Today");
+          break;
+        case "week":
+          $("#greenhousetext").text("Carbon Emissions for the Week");
+          break;
+        case "monthto":
+          $("#greenhousetext").text("Carbon Emissions for the Month");
+          break;
+        case "yearto":
+          $("#greenhousetext").text("Carbon Emissions for the Year");
+          break;
+      }
+
+      // Money
+      // $("#money").text(Math.round(data.power.hourly / 4000, 2));
 
       // Target
       var targetarr = {

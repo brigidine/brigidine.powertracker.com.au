@@ -155,53 +155,11 @@ function drawChart(range) {
         //console.log('loop', i, response.values[i]);
         if (response.values[i] == null) response.values[i] = 0;
       }
-
       console.log("drawChart", response);
-      $("#mainChart").replaceWith(
-        '<canvas id="mainChart" height="400"></canvas>'
-      );
-      var ctx = document.getElementById("mainChart");
-      var data = {
-        labels: response["labels"],
-        datasets: [
-          {
-            label: "# of Values",
-            data: response["values"],
-            backgroundColor: "rgba(102,161,101,0.4)",
-            borderColor: "rgba(1102,161,101,1)",
-            borderWidth: 1
-          }
-        ]
-      };
-      var options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        legend: {
-          display: false,
-          position: "right",
-          labels: {
-            fontColor: "#FFFFFF"
-          }
-        },
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true
-              },
-              scaleLabel: {
-                display: true,
-                labelString: "Energy (Wh)"
-              }
-            }
-          ]
-        }
-      };
-      var myChart = new Chart(ctx, {
-        type: "line",
-        data: data,
-        options: options
-      });
+      mainChartData = mainChartData || {};
+      mainChartData.powertracker = response;
+      console.log("mainChartData", mainChartData);
+      renderMainChart();
     }
   });
 }

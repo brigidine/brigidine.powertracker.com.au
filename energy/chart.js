@@ -4,11 +4,6 @@
  * - data from Power Tracker and Solar Analytics
  */
 
-var mainChartData = {
-  powertracker: null,
-  solaranalytics: null
-};
-
 function renderMainChart() {
   console.log("renderMainChart", mainChartData);
 

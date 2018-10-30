@@ -1,18 +1,17 @@
-var mainChartData = {
-  powertracker: null,
-  solaranalytics: null
-};
+var mainChartData = {};
 
 function clickButton(range) {
   $(".getdatabtn").removeClass("btn-primary");
   $("#getdata" + range).addClass("btn-primary");
-  getConsumption(range);
-  getLastYear(range);
-  getChartData(range);
+  getPTConsumption(range);
+  getPTLastYear(range);
+  getPTChartData(range);
+  getSAChartData(range);
+  mainChartData = { range: range };
 }
 
 $(document).ready(function() {
-  getLivePower();
+  getPTLivePower();
   clickButton("day");
 });
 

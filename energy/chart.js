@@ -5,29 +5,43 @@
  */
 
 function renderMainChart() {
-  console.log("renderMainChart", mainChartData);
+  // console.log("renderMainChart", mainChartData);
 
-  if (mainChartData.powertracker === null) {
+  if (mainChartData.powertracker === undefined) {
     return;
   }
 
   $("#mainChart").replaceWith('<canvas id="mainChart" height="400"></canvas>');
   var ctx = document.getElementById("mainChart");
   var data = {
-    labels: mainChartData.powertracker["labels"],
+    labels: mainChartData.labels,
     datasets: [
       {
-        label: "# of Values",
-        data: mainChartData.powertracker["values"],
-        backgroundColor: "rgba(102,161,101,0.4)",
+        data: extractPTChartData(),
         borderColor: "rgba(1102,161,101,1)",
-        borderWidth: 1
+        borderWidth: 1,
+        // fill: false,
+        backgroundColor: "rgba(102,161,101,0.4)"
+        // yAxisID: "y-axis-1"
+      },
+      {
+        data: extractSAChartData(),
+        borderColor: "rgba(244,229,66,1)",
+        borderWidth: 1,
+        backgroundColor: "rgba(244,244,65,0.4)"
+        // fill: false,
+        // yAxisID: "y-axis-2"
       }
     ]
   };
   var options = {
     responsive: true,
     maintainAspectRatio: false,
+    // stacked: false,
+    title: {
+      display: true,
+      text: "Production vs Consumption"
+    },
     legend: {
       display: false,
       position: "right",
@@ -38,13 +52,33 @@ function renderMainChart() {
     scales: {
       yAxes: [
         {
+          id: "y-axis-1",
+          type: "linear",
+          display: true,
+          position: "left",
           ticks: {
             beginAtZero: true
           },
           scaleLabel: {
             display: true,
-            labelString: "Energy (Wh)"
+            labelString: "Consumption (kWh)"
           }
+        },
+        {
+          id: "y-axis-2",
+          type: "linear",
+          display: false,
+          position: "right",
+          ticks: {
+            beginAtZero: true
+          },
+          scaleLabel: {
+            display: true,
+            labelString: "Production (kWh)"
+          }
+          //   gridLines: {
+          //     drawOnChartArea: false
+          //   }
         }
       ]
     }

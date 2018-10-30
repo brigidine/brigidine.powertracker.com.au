@@ -1,13 +1,13 @@
 var store = {};
 
 function clickButton(range) {
+  store.range = range;
   $(".getdatabtn").removeClass("btn-primary");
   $("#getdata" + range).addClass("btn-primary");
   getPTConsumption(range);
   getPTLastYear(range);
   getPTChartData(range);
   getSAChartData(range);
-  store = { range: range };
 }
 
 function renderMain() {

@@ -83,27 +83,38 @@ function convertSAData(range, raw) {
 }
 
 function getSAChartDataSite(range, siteId) {
-  var url =
-    "https://portal.solaranalytics.com.au/api/v2/site_data/" +
-    siteId +
-    "?gran=" +
-    rangeToGrainMap[range];
-  // console.log("getSAChartDataSite", range, siteId, url);
-  $.ajax({
-    type: "GET",
-    url: url,
-    dataType: "json",
-    beforeSend: function(xhr) {
-      xhr.setRequestHeader("Authorization", "Bearer " + SAToken);
-    },
-    success: function(data) {
-      // console.log("getSAChartDataActual", range, data);
-      if (!store[range]) store[range] = {};
-      if (!store[range].solaranalytics) store[range].solaranalytics = {};
-      store[range].solaranalytics[siteId] = convertSAData(range, data);
-      renderMain();
-    }
-  });
+  if (
+    store[range] &&
+    store[range].solaranalytics &&
+    store[range].solaranalytics[siteId]
+  ) {
+    // already have data
+    // console.log("skip", siteId);
+    renderMain();
+  } else {
+    // need to get data
+    var url =
+      "https://portal.solaranalytics.com.au/api/v2/site_data/" +
+      siteId +
+      "?gran=" +
+      rangeToGrainMap[range];
+    // console.log("getSAChartDataSite", range, siteId, url);
+    $.ajax({
+      type: "GET",
+      url: url,
+      dataType: "json",
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", "Bearer " + SAToken);
+      },
+      success: function(data) {
+        // console.log("getSAChartDataSite", range, data);
+        if (!store[range]) store[range] = {};
+        if (!store[range].solaranalytics) store[range].solaranalytics = {};
+        store[range].solaranalytics[siteId] = convertSAData(range, data);
+        renderMain();
+      }
+    });
+  }
 }
 
 function getSAChartDataActual(range) {
@@ -121,29 +132,30 @@ function getSAChartData(range) {
   else getSAChartDataActual(range)();
 }
 
-function extractSATotal() {
+function extractSATotal(range) {
   // console.log("getSolarTotal", store);
   if (
-    !store["yearto"] ||
-    !store["yearto"].solaranalytics ||
-    !store["yearto"].solaranalytics[siteId1] ||
-    !store["yearto"].solaranalytics[siteId2]
+    !store[range] ||
+    !store[range].solaranalytics ||
+    !store[range].solaranalytics[siteId1] ||
+    !store[range].solaranalytics[siteId2]
   )
     return "--";
   var total = 0;
-  Object.keys(store["yearto"].solaranalytics[siteId1]).forEach(function(key) {
-    var value = store["yearto"].solaranalytics[siteId1][key];
+  Object.keys(store[range].solaranalytics[siteId1]).forEach(function(key) {
+    var value = store[range].solaranalytics[siteId1][key];
     total = total + (value < 0 ? 0 : value);
   });
-  Object.keys(store["yearto"].solaranalytics[siteId2]).forEach(function(key) {
-    var value = store["yearto"].solaranalytics[siteId2][key];
+  Object.keys(store[range].solaranalytics[siteId2]).forEach(function(key) {
+    var value = store[range].solaranalytics[siteId2][key];
     total = total + (value < 0 ? 0 : value);
   });
   return ((total / 1000) * 0.23793).toFixed(2);
 }
 
 function renderSATotal() {
-  $("#currentsolarsavings").text(extractSATotal());
+  // console.log("store", store);
+  $("#currentsolarsavings").text(extractSATotal("yearto"));
 }
 
 function getSATotal() {

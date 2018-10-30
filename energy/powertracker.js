@@ -160,7 +160,7 @@ function getPTChartData(range) {
       // console.log("getPTChartData", response);
       mainChartData.powertracker = response.values;
       mainChartData.labels = response.labels;
-      renderMainChart();
+      renderMain();
     }
   });
 }

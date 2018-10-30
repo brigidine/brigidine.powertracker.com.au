@@ -26,9 +26,9 @@ function renderMainChart() {
       },
       {
         data: extractSAChartData(),
-        borderColor: "rgba(244,229,66,1)",
+        borderColor: "rgb(12,210,215,1)",
         borderWidth: 1,
-        backgroundColor: "rgba(244,244,65,0.4)"
+        backgroundColor: "rgba(12,210,215,0.4)"
         // fill: false,
         // yAxisID: "y-axis-2"
       }

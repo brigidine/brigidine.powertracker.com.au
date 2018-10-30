@@ -99,7 +99,7 @@ function getSAChartDataSite(range, siteId) {
       // console.log("getSAChartDataActual", range, data);
       if (!mainChartData.solaranalytics) mainChartData.solaranalytics = {};
       mainChartData.solaranalytics[siteId] = convertSAData(range, data);
-      renderMainChart();
+      renderMain();
     }
   });
 }

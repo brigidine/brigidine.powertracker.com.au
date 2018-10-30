@@ -10,6 +10,10 @@ function clickButton(range) {
   mainChartData = { range: range };
 }
 
+function renderMain() {
+  renderMainChart();
+}
+
 $(document).ready(function() {
   getPTLivePower();
   clickButton("day");

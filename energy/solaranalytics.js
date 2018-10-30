@@ -39,17 +39,18 @@ function getSAToken(callNext) {
   });
 }
 
-function extractSAChartData() {
+function extractSAChartData(range) {
   if (
-    !mainChartData.solaranalytics ||
-    !mainChartData.solaranalytics[siteId1] ||
-    !mainChartData.solaranalytics[siteId2]
+    !store[range] ||
+    !store[range].solaranalytics ||
+    !store[range].solaranalytics[siteId1] ||
+    !store[range].solaranalytics[siteId2]
   )
     return [];
-  return mainChartData.labels.map(function(label) {
+  return store[range].labels.map(function(label) {
     var kW =
-      ((mainChartData.solaranalytics[siteId1][label] || 0) +
-        (mainChartData.solaranalytics[siteId1][label] || 0)) /
+      ((store[range].solaranalytics[siteId1][label] || 0) +
+        (store[range].solaranalytics[siteId1][label] || 0)) /
       1000;
     return kW < 0 ? 0 : kW; // no negative
   });
@@ -97,8 +98,9 @@ function getSAChartDataSite(range, siteId) {
     },
     success: function(data) {
       // console.log("getSAChartDataActual", range, data);
-      if (!mainChartData.solaranalytics) mainChartData.solaranalytics = {};
-      mainChartData.solaranalytics[siteId] = convertSAData(range, data);
+      if (!store[range]) store[range] = {};
+      if (!store[range].solaranalytics) store[range].solaranalytics = {};
+      store[range].solaranalytics[siteId] = convertSAData(range, data);
       renderMain();
     }
   });
@@ -117,4 +119,33 @@ function getSAChartData(range) {
   // console.log("getSAChartData", range);
   if (SAToken === null) getSAToken(getSAChartDataActual(range));
   else getSAChartDataActual(range)();
+}
+
+function extractSATotal() {
+  // console.log("getSolarTotal", store);
+  if (
+    !store["yearto"] ||
+    !store["yearto"].solaranalytics ||
+    !store["yearto"].solaranalytics[siteId1] ||
+    !store["yearto"].solaranalytics[siteId2]
+  )
+    return "--";
+  var total = 0;
+  Object.keys(store["yearto"].solaranalytics[siteId1]).forEach(function(key) {
+    var value = store["yearto"].solaranalytics[siteId1][key];
+    total = total + (value < 0 ? 0 : value);
+  });
+  Object.keys(store["yearto"].solaranalytics[siteId2]).forEach(function(key) {
+    var value = store["yearto"].solaranalytics[siteId2][key];
+    total = total + (value < 0 ? 0 : value);
+  });
+  return ((total / 1000) * 0.23793).toFixed(2);
+}
+
+function renderSATotal() {
+  $("#currentsolarsavings").text(extractSATotal());
+}
+
+function getSATotal() {
+  getSAChartData("yearto");
 }

@@ -4,8 +4,8 @@
 
 var serial = "id26191";
 
-function extractPTChartData() {
-  return mainChartData.powertracker.map(function(value) {
+function extractPTChartData(range) {
+  return store[range].powertracker.map(function(value) {
     return value / 1000;
   });
 }
@@ -158,8 +158,9 @@ function getPTChartData(range) {
         if (response.values[i] == null) response.values[i] = 0;
       }
       // console.log("getPTChartData", response);
-      mainChartData.powertracker = response.values;
-      mainChartData.labels = response.labels;
+      if (!store[range]) store[range] = {};
+      store[range].powertracker = response.values;
+      store[range].labels = response.labels;
       renderMain();
     }
   });

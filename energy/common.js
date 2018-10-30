@@ -1,4 +1,4 @@
-var mainChartData = {};
+var store = {};
 
 function clickButton(range) {
   $(".getdatabtn").removeClass("btn-primary");
@@ -7,15 +7,17 @@ function clickButton(range) {
   getPTLastYear(range);
   getPTChartData(range);
   getSAChartData(range);
-  mainChartData = { range: range };
+  store = { range: range };
 }
 
 function renderMain() {
   renderMainChart();
+  renderSATotal();
 }
 
 $(document).ready(function() {
   getPTLivePower();
+  getSATotal();
   clickButton("day");
 });
 

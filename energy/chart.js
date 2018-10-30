@@ -5,19 +5,18 @@
  */
 
 function renderMainChart() {
-  // console.log("renderMainChart", mainChartData);
-
-  if (mainChartData.powertracker === undefined) {
+  // console.log("renderMainChart", store);
+  if (!store[store.range] || !store[store.range].labels) {
     return;
   }
 
   $("#mainChart").replaceWith('<canvas id="mainChart" height="400"></canvas>');
   var ctx = document.getElementById("mainChart");
   var data = {
-    labels: mainChartData.labels,
+    labels: store[store.range].labels,
     datasets: [
       {
-        data: extractPTChartData(),
+        data: extractPTChartData(store.range),
         borderColor: "rgba(1102,161,101,1)",
         borderWidth: 1,
         // fill: false,
@@ -25,7 +24,7 @@ function renderMainChart() {
         // yAxisID: "y-axis-1"
       },
       {
-        data: extractSAChartData(),
+        data: extractSAChartData(store.range),
         borderColor: "rgb(12,210,215,1)",
         borderWidth: 1,
         backgroundColor: "rgba(12,210,215,0.4)"

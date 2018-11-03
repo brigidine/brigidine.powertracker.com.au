@@ -13,6 +13,7 @@ function clickButton(range) {
 function renderMain() {
   renderMainChart();
   renderSATotal();
+  renderSAInstant();
 }
 
 $(document).ready(function() {

@@ -68,7 +68,7 @@ function convertSAData(range, raw) {
     // console.log("generated", generated, time);
     var date = new Date(timeStr);
     var key = dateFns.format(date, format);
-    console.log("time->date", timeStr, "->", date, "-> ", key);
+    // console.log("time->date", timeStr, "->", date, "-> ", key);
     obj[key] = generated;
   });
   // console.log("obj", obj);
@@ -160,4 +160,41 @@ function renderSATotal() {
 
 function getSATotal() {
   getSAChartData("yearto");
+}
+
+function renderSAInstant() {
+  var value = getSAInstant();
+  if (value === null) {
+    $("#solarinstantvalue").text("-");
+    $("#solarinstantunits").html("");
+  } else {
+    var eng = engineeringNotation(value, "W");
+    // console.log("Green house", eng);
+    $("#solarinstantvalue").text(eng.value);
+    $("#solarinstantunits").html(eng.units);
+  }
+}
+
+function getSAInstant() {
+  if (
+    !store.day ||
+    !store.day.solaranalytics ||
+    !store.day.solaranalytics[siteId1] ||
+    !store.day.solaranalytics[siteId2]
+  )
+    return null;
+  return (
+    getLastValue(store.day.solaranalytics[siteId1]) +
+    getLastValue(store.day.solaranalytics[siteId2])
+  );
+}
+
+function getLastValue(arr) {
+  var keys = Object.keys(arr);
+  var last = keys.reduce(function(acc, val) {
+    if (arr[val] === null) return acc;
+    return acc > val ? acc : val;
+  }, null);
+  // console.log("last", last, arr[last], arr);
+  return arr[last] || 0;
 }

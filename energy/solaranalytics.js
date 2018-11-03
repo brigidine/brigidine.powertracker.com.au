@@ -7,13 +7,6 @@ var SAToken = null;
 var siteId1 = 38963;
 var siteId2 = 38959;
 
-var rangeToGrainMap = {
-  day: "hour",
-  week: "day",
-  monthto: "day",
-  yearto: "month"
-};
-
 function getSAToken(callNext) {
   // console.log("getSAToken");
   var url = "https://portal.solaranalytics.com.au/api/v3/token";
@@ -58,7 +51,7 @@ function extractSAChartData(range) {
 
 var formatDateMap = {
   day: "HH", // 2-digit hour "00" to "23"
-  week: "s-MMM-YYYY ha", // formatted "24-Oct-2018 12am"
+  week: "D-MMM-YYYY ha", // formatted "24-Oct-2018 12am"
   monthto: "DD", // 2-digit dom "00" to "31"
   yearto: "MMM" // 3-char month "Jan" to "Dec"
 };
@@ -71,16 +64,23 @@ function convertSAData(range, raw) {
   raw.data.forEach(function(rec) {
     // var consumed = rec["energy_consumed"];
     var generated = rec["energy_generated"];
-    var time = rec["t_stamp"];
+    var timeStr = rec["t_stamp"];
     // console.log("generated", generated, time);
-    var date = new Date(time);
+    var date = new Date(timeStr);
     var key = dateFns.format(date, format);
-    // console.log("time->date", time, date, key);
+    console.log("time->date", timeStr, "->", date, "-> ", key);
     obj[key] = generated;
   });
   // console.log("obj", obj);
   return obj;
 }
+
+var rangeToGrainMap = {
+  day: "hour",
+  week: "hour",
+  monthto: "day",
+  yearto: "month"
+};
 
 function getSAChartDataSite(range, siteId) {
   if (

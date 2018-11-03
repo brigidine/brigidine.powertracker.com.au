@@ -5,7 +5,7 @@
  */
 
 function renderMainChart() {
-  // console.log("renderMainChart", store);
+  console.log("renderMainChart", store);
   if (!store[store.range] || !store[store.range].labels) {
     return;
   }

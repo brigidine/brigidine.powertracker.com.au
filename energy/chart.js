@@ -39,7 +39,7 @@ function renderMainChart() {
     // stacked: false,
     title: {
       display: true,
-      text: "Consumption vs Production"
+      text: <font colour="#B9764A">"Consumption vs <font colour ="#0CD2D7">Production"
       
     },
     legend: {

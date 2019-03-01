@@ -39,7 +39,7 @@ function renderMainChart() {
     // stacked: false,
     title: {
       display: true,
-      text: Consumption vs Production 
+      text: "Consumption vs Production"
     },
     legend: {
       display: false,

@@ -44,6 +44,7 @@ function renderMainChart() {
     legend: {
       display: false,
       position: "right",
+      color: red,
       labels: {
         fontColor: "#0CD2D7"
       }

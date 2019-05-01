@@ -40,8 +40,6 @@ function renderMainChart() {
     title: {
       display: true,
       text: "Consumption vs Production"
-      labels: {
-        fontColor: "#0CD2D7"
       
     },
     legend: {

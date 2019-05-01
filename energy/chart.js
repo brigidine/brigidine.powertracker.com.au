@@ -40,7 +40,6 @@ function renderMainChart() {
     title: {
       display: true,
       text: "Consumption vs Production"
-      Color: red,
     },
     legend: {
       display: false,

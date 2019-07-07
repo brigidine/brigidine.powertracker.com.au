@@ -7,35 +7,35 @@ googleanalytics: UA-26183233-5
 # Build settings
 
 sass:
-    style: compressed
+  style: compressed
 
 # Javascript files
 
 javascript:
-    - /js/jquery.min.js
-    - /js/bootstrap.min.js
+  - /js/jquery.min.js
+  - /js/bootstrap.min.js
 
 stylesheets:
-    - /css/style.css
-    - https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - /css/style.css
+  - https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
 
 # Define Menu Items for Main and Footer menu
 
 menuitems:
-    - url: /
-      title: "Home"
-    - url: /about/
-      title: "About"
-    - url: /digdeeper/
-      title: "Dig Deeper"
-    - url: /energy/
-      title: "Energy"
-    - url: /target/
-      title: "Target"
-    - url: /leaderboard/
-      title: "Leaderboard"
-    - url: https://www.energygame.com.au/
-      title: "Register"
-      target: _blank
-    - url: /contact/
-      title: "Contact Us"
+  - url: /
+    title: "Home"
+  - url: /about/
+    title: "About"
+  - url: /digdeeper/
+    title: "Dig Deeper"
+  - url: /energy/
+    title: "Energy"
+  - url: /target/
+    title: "Target"
+  - url: /leaderboard/
+    title: "Leaderboard"
+  - url: https://play.energygame.com.au/
+    title: "Register"
+    target: _blank
+  - url: /contact/
+    title: "Contact Us"

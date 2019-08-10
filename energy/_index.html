@@ -1,60 +1,68 @@
 <div class="container">
     <div class="row chart">
         <div class="col-xs-12">
-            <canvas id="mainChart" height="400"></canvas>
+            <h4 class="text-center">
+                <span style="color:rgb(102,161,101)">Consumption</span>
+                vs
+                <span style="color:rgb(12,210,215)">Production</span>
+            </h4>
+            <canvas height="400" id="mainChart"></canvas>
         </div>
     </div>
-    <div class="row text-center" style="
-        margin-top: 30px;
-        margin-bottom: 30px;
-        ">
+    <div class="row text-center" style="margin-top: 30px; margin-bottom: 30px;">
         <div class="col-xs-12">
-            <button id="getdataday" class="getdatabtn btn btn-default" onclick="clickButton('day')">Today</button>
-            <button id="getdataweek" class="getdatabtn btn btn-default" onclick="clickButton('week')">Week</button>
-            <button id="getdatamonthto" class="getdatabtn btn btn-default" onclick="clickButton('monthto')">Month</button>
-            <button id="getdatayearto" class="getdatabtn btn btn-default" onclick="clickButton('yearto')">Year</button>
+            <button class="getdatabtn btn btn-default" id="getdataday" onclick="clickButton('day')">Today</button>
+            <button class="getdatabtn btn btn-default" id="getdataweek" onclick="clickButton('week')">Week</button>
+            <button class="getdatabtn btn btn-default" id="getdatamonthto" onclick="clickButton('monthto')">Month</button>
+            <button class="getdatabtn btn btn-default" id="getdatayearto" onclick="clickButton('yearto')">Year</button>
         </div>
     </div>
     <div class="row text-center readings">
         <div class="col-xs-6 col-sm-2 reading">
             <span class="icon fa fa-tachometer"></span>
             <a class="value" title="Comment goes here">
-                <span id="livepowervalue">-</span><span id="livepowerunits" class="units"></span>
+                <span id="livepowervalue">-</span>
+                <span class="units" id="livepowerunits"></span>
             </a>
             <p class="text">Live Power Now</p>
         </div>
         <div class="col-xs-6 col-sm-2 reading">
             <span class="icon fa fa-leaf"></span>
             <a class="value" title="Comment goes here">
-                <span id="lastyearvalue">-</span><span id="lastyearunits" class="units"></span>
+                <span id="lastyearvalue">-</span>
+                <span class="units" id="lastyearunits"></span>
             </a>
             <p class="text">Carbon Emission this time last year</p>
         </div>
         <div class="col-xs-6 col-sm-2 reading">
             <span class="icon fa fa-leaf"></span>
             <a class="value" title="Comment goes here">
-                <span id="greenhousevalue">-</span><span id="greenhouseunits" class="units"></span>
+                <span id="greenhousevalue">-</span>
+                <span class="units" id="greenhouseunits"></span>
             </a>
-            <p id="greenhousetext" class="text">Carbon Emissions</p>
+            <p class="text" id="greenhousetext">Carbon Emissions</p>
         </div>
         <div class="col-xs-6 col-sm-2 reading" style="color: #0CD2D7;">
             <span class="icon fa fa-sun-o"></span>
             <a class="value" title="Comment goes here">
-                <span id="solarinstantvalue">-</span><span id="solarinstantunits" class="units"></span>
+                <span id="solarinstantvalue">-</span>
+                <span class="units" id="solarinstantunits"></span>
             </a>
             <p class="text">Solar Power Generation today</p>
         </div>
         <div class="col-xs-6 col-sm-2 reading">
             <span class="icon fa fa-money"></span>
             <a class="value" title="Comment goes here">
-                <span class="units">$</span><span id="moneyspentoneletricitythistimelastyear">237.93</span>
+                <span class="units">$</span>
+                <span id="moneyspentoneletricitythistimelastyear">237.93</span>
             </a>
             <p class="text">Money spent on Electricity this time last year per day when using fossil fuels</p>
         </div>
         <div class="col-xs-6 col-sm-2 reading" style="color: #0CD2D7">
             <span class="icon fa fa-money"></span>
             <a class="value" title="Comment goes here">
-                <span class="units">$</span><span id="currentsolarsavings">-</span>
+                <span class="units">$</span>
+                <span id="currentsolarsavings">-</span>
             </a>
             <p class="text">Current savings as a result of our solar installation</p>
         </div>

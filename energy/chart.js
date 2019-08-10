@@ -37,10 +37,7 @@ function renderMainChart() {
     responsive: true,
     maintainAspectRatio: false,
     // stacked: false,
-    title: {
-      display: true,
-      text: "Consumption vs Production"
-    },
+    title: false,
     legend: {
       display: false,
       position: "right",

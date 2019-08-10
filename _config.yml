@@ -35,7 +35,7 @@ menuitems:
   - url: /leaderboard/
     title: "Leaderboard"
   - url: https://play.energygame.com.au/
-    title: "Register"
+    title: "Play"
     target: _blank
   - url: /contact/
     title: "Contact Us"
